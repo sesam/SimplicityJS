@@ -18,7 +18,8 @@ export default function match(matchOn) {
 		return self;
 	};
 	self.else = result => {
-		elseCase = result || (() => result);
+		if (elseCase) console.error("InvalidOperationException: Cannot have multiple else cases");
+		else elseCase = result;
 
 		return self;
 	};
